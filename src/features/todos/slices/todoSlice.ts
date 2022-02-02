@@ -28,12 +28,11 @@ export const deleteTodoAsync = createAsyncThunk(
     }
 )
 
-
 export const saveTodoAsync = createAsyncThunk(
     "todos/saveTodo",
     async (payload:TodoInfo) =>{
         const dao: DAO = new TodoDAO()
-        const todo = await dao.save(payload)
+        const todo = await dao.save(payload as Todo)
         return { todo }
     }
 )

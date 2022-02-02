@@ -12,7 +12,7 @@ const TodoForm = () => {
 
     const dispatch = useDispatch()
     const onSubmit = (event:FormEvent)=>{
-        
+        event.preventDefault();
         dispatch(saveTodoAsync({title, completed}))
     }
 
