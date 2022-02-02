@@ -24,7 +24,7 @@ const TodoFinalForm = () => {
     return (
 		<Form
 			onSubmit={onSubmit}
-			validate = {onValidate},
+			validate = {onValidate} 
 			initialValues={{title: '', completed: false}}
 			render={({ handleSubmit,submitting,pristine}) => (
 
