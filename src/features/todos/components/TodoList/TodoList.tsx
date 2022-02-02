@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../app/store';
 import { Todo } from '../../../../core/Todo';
+import { getTodosAsync } from '../../slices/todoSlice';
 
 import TodoRow from './TodoRow';
 
 const TodoList = () => {
   console.log('TodoList render')
+  const dispatch = useDispatch();
+  const todos:Todo[] = useSelector((state:RootState) => state.todoList.todos)
 
-  const todos:Todo[] = useSelector((state:RootState) => state.todoList.value)
-
+  useEffect(() => {
+    dispatch(getTodosAsync())
+  },[])
 
   return <div>
     TodoList
