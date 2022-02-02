@@ -30,7 +30,16 @@ const TodoFinalForm = () => {
 
 					<form onSubmit={handleSubmit} className='form-inline mt-3 mb-3'>
 						<label className='sr-only' htmlFor='title'>Name</label>
-						<Field name='title' component='input' className='form-control mb-2 mr-sm-2' placeholder='Add todo...'/>
+						{/* <Field name='title' component='input' className='form-control mb-2 mr-sm-2' placeholder='Add todo...'/> */}
+
+						<Field name="title" type="text">
+							{({ input, meta }) => (
+								<div>
+									<input {...input} placeholder="Add todo..." className="form-control mb-2 mr-sm-2" />
+									{meta.error && meta.touched && <span>{meta.error}</span>}
+								</div>
+							)}
+						</Field>
 						
 						<label className='sr-only' htmlFor='completed'>Completed ?</label>
 						<Field name='completed' component='input' type="checkbox" />
